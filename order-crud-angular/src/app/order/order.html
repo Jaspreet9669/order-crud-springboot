@@ -1,0 +1,38 @@
+<h2>Order Management</h2>
+
+<form (ngSubmit)="addOrder()">
+  <input
+    type="text"
+    placeholder="Product Name"
+    [(ngModel)]="newOrder.productName"
+    name="productName"
+    required
+  />
+
+  <input
+    type="number"
+    placeholder="Quantity"
+    [(ngModel)]="newOrder.quantity"
+    name="quantity"
+    required
+  />
+
+  <input
+    type="number"
+    placeholder="Price"
+    [(ngModel)]="newOrder.price"
+    name="price"
+    required
+  />
+
+  <button type="submit">Add Order</button>
+</form>
+
+<hr />
+
+<ul>
+  <li *ngFor="let order of orders; let i = index">
+    {{ order.productName }} - {{ order.quantity }} × ₹{{ order.price }}
+    <button (click)="deleteOrder(i)">Delete</button>
+  </li>
+</ul>
